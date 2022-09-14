@@ -58,7 +58,7 @@ const userController = {
       });
   },
   destroy: (req, res) => {
-    const { id_user } = req.body;
+    const { id_user } = req.params;
     userModel
       .destroy(id_user)
       .then((result) => {
