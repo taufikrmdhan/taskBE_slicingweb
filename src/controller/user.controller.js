@@ -25,6 +25,17 @@ const userController = {
         res.json(err);
       });
   },
+  listUserById: (req, res) => {
+    const { id_user } = req.params;
+    userModel
+      .listUserById(id_user)
+      .then((result) => {
+        res.json(result.rows);
+      })
+      .catch((err) => {
+        res.json(err);
+      });
+  },
   update: (req, res) => {
     const {id_user, password} = req.body;
     userModel

@@ -1,11 +1,12 @@
 const pg = require("pg");
+const dotenv = require("dotenv").config();
 
 const db = new pg.Pool({
-  user: "postgres",
-  host: "localhost",
-  password: "T301120r",
-  database: "db_task_beginnerbe",
-  port: 5432,
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE,
+  port: process.env.DB_PORT,
 });
 db.connect((err) => {
   if (err) {
