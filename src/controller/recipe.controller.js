@@ -37,6 +37,16 @@ const recipeController = {
         res.json(err);
       });
   },
+  listRecipeAsc: (req, res) => {
+    recipeModel
+      .listRecipeAsc()
+      .then((result) => {
+        res.json(result.rows);
+      })
+      .catch((err) => {
+        res.json(err);
+      });
+  },
   updateRecipe: (req, res) => {
     const { id_recipe, title, image, ingredient, videostep, createdat } =
       req.body;

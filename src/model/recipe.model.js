@@ -39,6 +39,20 @@ const recipeModel = {
       );
     });
   },
+  listRecipeAsc: () => {
+    return new Promise((resolve, reject) => {
+      db.query(
+        'SELECT * FROM recipe ORDER BY title ASC',
+        (err, result) => {
+          if (err) {
+            reject(err);
+          } else {
+            resolve(result);
+          }
+        }
+      );
+    });
+  },
   updateRecipe: (id_recipe, title, image, ingredient, videostep, createdat) => {
     return new Promise((resolve, reject) => {
       db.query(

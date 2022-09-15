@@ -1,5 +1,4 @@
 const pg = require("pg");
-const dotenv = require("dotenv").config();
 
 const db = new pg.Pool({
   user: process.env.DB_USER,
