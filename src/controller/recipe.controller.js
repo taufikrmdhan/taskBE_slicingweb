@@ -1,14 +1,15 @@
-const recipeModel = require("../model/recipe.model");
+const recipeModel = require('../model/recipe.model');
 
 const recipeController = {
   insertRecipe: (req, res) => {
-    const { id_recipe, title, image, ingredient, videostep, createdat } =
-      req.body;
+    const {
+      id_recipe, title, image, ingredient, videostep, createdat,
+    } = req.body;
     recipeModel
       .insertRecipe(id_recipe, title, image, ingredient, videostep, createdat)
       .then((result) => {
         res.json({
-          message: "success insert data",
+          message: 'success insert data',
           data: result,
         });
       })
@@ -48,19 +49,20 @@ const recipeController = {
       });
   },
   updateRecipe: (req, res) => {
-    const { id_recipe, title, image, ingredient, videostep, createdat } =
-      req.body;
+    const {
+      id_recipe, title, image, ingredient, videostep, createdat,
+    } = req.body;
     recipeModel
       .updateRecipe(id_recipe, title, image, ingredient, videostep, createdat)
       .then((result) => {
         if (result.rowCount == 1) {
           res.json({
-            message: "success update data",
+            message: 'success update data',
             data: result,
           });
         } else {
           res.json({
-            message: "failed update data",
+            message: 'failed update data',
           });
         }
       })
@@ -76,12 +78,12 @@ const recipeController = {
       .then((result) => {
         if (result.rowCount == 1) {
           res.json({
-            message: "success update data",
+            message: 'success update data',
             data: result,
           });
         } else {
           res.json({
-            message: "failed update data",
+            message: 'failed update data',
           });
         }
       })
@@ -95,7 +97,7 @@ const recipeController = {
       .deleteRecipe(id_recipe)
       .then((result) => {
         res.json({
-          message: "success delete data",
+          message: 'success delete data',
           data: result,
         });
       })

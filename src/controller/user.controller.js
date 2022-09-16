@@ -1,13 +1,15 @@
-const userModel = require("../model/user.model");
+const userModel = require('../model/user.model');
 
 const userController = {
   insert: (req, res) => {
-    const { id_user, nama, email, password, phone } = req.body;
+    const {
+      id_user, nama, email, password, phone,
+    } = req.body;
     userModel
       .insert(id_user, nama, email, password, phone)
       .then((result) => {
         res.json({
-          message: "success insert data",
+          message: 'success insert data',
           data: result,
         });
       })
@@ -37,20 +39,19 @@ const userController = {
       });
   },
   update: (req, res) => {
-    const {id_user, password} = req.body;
+    const { id_user, password } = req.body;
     userModel
       .update(id_user, password)
       .then((result) => {
-        if(result.rowCount == 1){
+        if (result.rowCount == 1) {
           res.json({
-            message: "success update data",
+            message: 'success update data',
             data: result,
           });
-        }
-        else{
-            res.json({
-                message: "failed update data",
-            });
+        } else {
+          res.json({
+            message: 'failed update data',
+          });
         }
       })
       .catch((err) => {
@@ -63,7 +64,7 @@ const userController = {
       .destroy(id_user)
       .then((result) => {
         res.json({
-          message: "success delete data",
+          message: 'success delete data',
           data: result.rows,
         });
       })

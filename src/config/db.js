@@ -1,4 +1,4 @@
-const pg = require("pg");
+const pg = require('pg');
 
 const db = new pg.Pool({
   user: process.env.DB_USER,
@@ -9,10 +9,9 @@ const db = new pg.Pool({
 });
 db.connect((err) => {
   if (err) {
-    console.log("Error connecting to Db");
+    console.log('Error connecting to Db');
   } else {
-    console.log("Connection established");
+    console.log('Connection established');
   }
 });
 module.exports = db;
-
