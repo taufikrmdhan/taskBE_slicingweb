@@ -10,8 +10,8 @@ const userModel = {
       }
     });
   }),
-  list: () => new Promise((resolve, reject) => {
-    db.query('SELECT * FROM users', (err, result) => {
+  list: (limit, offset) => new Promise((resolve, reject) => {
+    db.query(`SELECT * FROM users LIMIT ${limit} OFFSET ${offset}`, (err, result) => {
       if (err) {
         reject(err);
       } else {

@@ -18,8 +18,11 @@ const userController = {
       });
   },
   list: (req, res) => {
+    const limit = parseInt(req.query.limit) || 3;
+    const page = parseInt(req.query.page) || 1;
+    const offset = (page - 1) * limit;
     userModel
-      .list()
+      .list(limit, offset)
       .then((result) => {
         res.json(result.rows);
       })
