@@ -1,0 +1,366 @@
+{
+	"info": {
+		"_postman_id": "365fbc8d-a81f-4127-a2fa-2548b5947996",
+		"name": "task_beginnerBE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17865208"
+	},
+	"item": [
+		{
+			"name": "addUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id_user\": 12,\n    \"nama\": \"iqbal\",\n    \"email\":\"iqbal@gmail.com\",\n    \"password\":\"54857\",\n    \"phone\": \"1235555\"\n}\n ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/user/add",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"user",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listUserById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/user/list/1",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"user",
+						"list",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUserList",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/user/list?limit=6&page=1",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"user",
+						"list"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "6"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateUser",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id_user\":3,\n    \"password\":\"11111\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/user/update",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"user",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteUser",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/user/delete/2",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"user",
+						"delete",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addRecipe",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id_recipe\": 7,\n    \"title\": \"Udang Bakar\",\n    \"image\": \"https://drive.google.com/file/d/1j_FW8OpupAaNoJD-n8DgFmRc9P2-a_kV/view?usp=sharing\",\n    \"ingredient\": \"Siapkan udang, lalu bakar udang dan sajikan dengan mantap.\",\n    \"videostep\": \"https://www.youtube.com/watch?v=XIXsdEWQeR0&ab_channel=MasakwithMamaVio\",\n    \"createdat\": \"2022-09-10\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/recipe/add",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"recipe",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listRecipe",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/recipe/list",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"recipe",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listRecipeByName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/recipe/list/Chicken",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"recipe",
+						"list",
+						"Chicken"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listRecipeAsc",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/recipe/list/asc",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"recipe",
+						"list",
+						"asc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteRecipe",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/recipe/delete/2",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"recipe",
+						"delete",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateRecipe",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id_recipe\": 1,\n    \"title\": \"Chicken Kari\",\n    \"image\": \"https://drive.google.com/file/d/12vZqjfhUPQvBcz4UPkDV4uiKTykEYzEY/view?usp=sharing\",\n    \"ingredient\": \"250 gram dada ayam fillet1/4 sdt garam (secukupnya)1 siung bawang putih (haluskan)1/2 sdt merica1 butir telur (kocok, beri sejumput garam)5 sdm tepung serbaguna secukupnya tepung panir\",\n    \"videostep\": \"https://www.youtube.com/watch?v=ZQop4gf1qv4&ab_channel=Mrs.Culinary\",\n    \"createdat\": \"2022-09-15\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/recipe/update",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"recipe",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateRecipeByName",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"image\": \"https://drive.google.com/file/d/12vZqjfhUPQvBcz4UPkDV4uiKTykEYzEY/view?usp=sharing\",\n    \"ingredient\": \"250 gram dada ayam fillet1/4 sdt garam (secukupnya)1 siung bawang putih (haluskan)1/2 sdt merica1 butir telur (kocok, beri sejumput garam)5 sdm tepung serbaguna secukupnya tepung panir\",\n    \"videostep\": \"https://www.youtube.com/watch?v=ZQop4gf1qv4&ab_channel=Mrs.Culinary\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/recipe/update/Chicken Kari",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"recipe",
+						"update",
+						"Chicken Kari"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addComment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id_comment\":2,\n    \"id_user\":3,\n    \"id_recipe\":1,\n    \"description\": \"Gak enak bang, rasanya asin banget nih\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/comment/add",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"comment",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCommentList",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/comment/list",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"comment",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteComment",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/comment/delete/1",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"comment",
+						"delete",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
