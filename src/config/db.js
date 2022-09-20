@@ -1,11 +1,12 @@
 const pg = require('pg');
+const {DB_HOST, DB_DATABASE, DB_PASSWORD,DB_PORT, DB_USER} = require('../helper/env');
 
 const db = new pg.Pool({
-  user: process.env.DB_USER,
-  host: process.env.DB_HOST,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_DATABASE,
-  port: process.env.DB_PORT,
+    host: DB_HOST,
+    database: DB_DATABASE,
+    password: DB_PASSWORD,
+    port: DB_PORT,
+    user: DB_USER
 });
 db.connect((err) => {
   if (err) {

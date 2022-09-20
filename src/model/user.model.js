@@ -1,8 +1,8 @@
 const db = require('../config/db');
 
 const userModel = {
-  insert: (id_user, nama, email, password, phone) => new Promise((resolve, reject) => {
-    db.query(`INSERT INTO users (id_user, nama, email, password, phone) VALUES (${id_user}, '${nama}', '${email}', '${password}', '${phone}')`, (err, result) => {
+  insert: (nama, email, password, phone) => new Promise((resolve, reject) => {
+    db.query(`INSERT INTO users (nama, email, password, phone) VALUES ('${nama}', '${email}', '${password}', '${phone}')`, (err, result) => {
       if (err) {
         reject(err);
       } else {
@@ -10,6 +10,26 @@ const userModel = {
       }
     });
   }),
+  register: ({nama, email, password, phone, level}) => new Promise((resolve, reject) => {
+    db.query(`INSERT INTO users (nama, email, password, phone, level) VALUES ('${nama}', '${email}', '${password}', '${phone}', ${level})`, (err, result) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(result);
+      }
+    });
+  }),
+  checkUsername: (nama) => {
+    return new Promise((resolve, reject) => {
+      db.query(`SELECT * FROM users WHERE nama = '${nama}'`, (err, result) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(result);
+        }
+      });
+    })
+  },
   list: (limit, offset) => new Promise((resolve, reject) => {
     db.query(`SELECT * FROM users LIMIT ${limit} OFFSET ${offset}`, (err, result) => {
       if (err) {

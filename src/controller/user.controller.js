@@ -1,20 +1,18 @@
 const userModel = require('../model/user.model');
+const { success, failed } = require('../helper/response');
 
 const userController = {
   insert: (req, res) => {
     const {
-      id_user, nama, email, password, phone,
+      nama, email, password, phone,
     } = req.body;
     userModel
-      .insert(id_user, nama, email, password, phone)
+      .insert(nama, email, password, phone)
       .then((result) => {
-        res.json({
-          message: 'success insert data',
-          data: result,
-        });
+        success(res, null, 'success', 'success insert data');
       })
       .catch((err) => {
-        res.json(err);
+        failed(res, err, 'failed', 'failed insert data');
       });
   },
   list: (req, res) => {
@@ -24,10 +22,10 @@ const userController = {
     userModel
       .list(limit, offset)
       .then((result) => {
-        res.json(result.rows);
+        success(res, result, 'success', 'success get data');
       })
       .catch((err) => {
-        res.json(err);
+        failed(res, err, 'failed', 'failed get data');
       });
   },
   listUserById: (req, res) => {
@@ -35,10 +33,10 @@ const userController = {
     userModel
       .listUserById(id_user)
       .then((result) => {
-        res.json(result.rows);
+        success(res, result, 'success', 'success get data by Id');
       })
       .catch((err) => {
-        res.json(err);
+        failed(res, err, 'failed', 'failed get data by Id');
       });
   },
   update: (req, res) => {
@@ -47,14 +45,9 @@ const userController = {
       .update(id_user, password)
       .then((result) => {
         if (result.rowCount == 1) {
-          res.json({
-            message: 'success update data',
-            data: result,
-          });
+          success(res, result, 'success', 'success update data');
         } else {
-          res.json({
-            message: 'failed update data',
-          });
+          failed(res, err, 'failed', 'failed update data');
         }
       })
       .catch((err) => {
@@ -66,13 +59,10 @@ const userController = {
     userModel
       .destroy(id_user)
       .then((result) => {
-        res.json({
-          message: 'success delete data',
-          data: result.rows,
-        });
+        success(res, result, 'success', 'success delete data');
       })
       .catch((err) => {
-        res.json(err);
+        failed(res, err, 'failed', 'failed delete data');
       });
   },
 };
