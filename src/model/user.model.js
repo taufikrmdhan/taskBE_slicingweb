@@ -10,8 +10,8 @@ const userModel = {
       }
     });
   }),
-  register: ({nama, email, password, phone, level}) => new Promise((resolve, reject) => {
-    db.query(`INSERT INTO users (nama, email, password, phone, level) VALUES ('${nama}', '${email}', '${password}', '${phone}', ${level})`, (err, result) => {
+  register: ({nama, email, password, phone, level, image}) => new Promise((resolve, reject) => {
+    db.query(`INSERT INTO users (nama, email, password, phone, level, image) VALUES ('${nama}', '${email}', '${password}', '${phone}', ${level}, '${image}')`, (err, result) => {
       if (err) {
         reject(err);
       } else {

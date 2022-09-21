@@ -1,9 +1,9 @@
 const db = require('../config/db');
 
 const recipeModel = {
-  insertRecipe: (id_recipe, title, image, ingredient, videostep, createdat) => new Promise((resolve, reject) => {
+  insertRecipe: (title, image, ingredient, videostep, createdat) => new Promise((resolve, reject) => {
     db.query(
-      `INSERT INTO recipe (id_recipe, title, image, ingredient, videostep, createdat) VALUES (${id_recipe}, '${title}', '${image}', '${ingredient}', '${videostep}', '${createdat}')`,
+      `INSERT INTO recipe (title, image, ingredient, videostep, createdat) VALUES ('${title}', '${image}', '${ingredient}', '${videostep}', '${createdat}')`,
       (err, result) => {
         if (err) {
           reject(err);

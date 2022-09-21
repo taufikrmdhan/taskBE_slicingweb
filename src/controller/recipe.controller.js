@@ -4,10 +4,10 @@ const { success, failed } = require('../helper/response');
 const recipeController = {
   insertRecipe: (req, res) => {
     const {
-      id_recipe, title, image, ingredient, videostep, createdat,
+      title, image, ingredient, videostep, createdat,
     } = req.body;
     recipeModel
-      .insertRecipe(id_recipe, title, image, ingredient, videostep, createdat)
+      .insertRecipe(title, image, ingredient, videostep, createdat)
       .then((result) => {
         res.json({
           message: 'success insert data',

@@ -8,6 +8,7 @@ module.exports = {
     register: (req,res) => {
         try{
             const {nama, email, password, phone, level} = req.body;
+            const {image} = req.file;
             bcrypt.hash(password, 10, (err, hash) => {
                 if(err){
                     failed(res, err.message, 'failed', 'fail hash password');
@@ -17,7 +18,8 @@ module.exports = {
                     email,
                     password: hash,
                     phone,
-                    level
+                    level,
+                    image
                 }
                 userModel
                 .register(data)
