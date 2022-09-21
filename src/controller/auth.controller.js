@@ -8,7 +8,7 @@ module.exports = {
     register: (req,res) => {
         try{
             const {nama, email, password, phone, level} = req.body;
-            const {image} = req.file;
+            const image = req.file.filename;
             bcrypt.hash(password, 10, (err, hash) => {
                 if(err){
                     failed(res, err.message, 'failed', 'fail hash password');

@@ -18,7 +18,6 @@ const multerUpload = multer({
     }),
     fileFilter: (req, file, cb) => {
         const ext = path.extname(file.originalname);
-        console.log(ext);
         if(ext === '.jpg' || ext === '.png'){
             cb(null, true);
         } else {
