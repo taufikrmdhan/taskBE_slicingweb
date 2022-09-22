@@ -82,7 +82,7 @@ const recipeModel = {
   //     },
   //   );
   // }),
-  updateRecipeById: (id_recipe, image) => new Promise((resolve, reject) => {
+  updateRecipeById: (id_recipe,image) => new Promise((resolve, reject) => {
     db.query(
       `UPDATE recipe SET image = '${image}' WHERE id_recipe = ${id_recipe}`,
       (err, result) => {
