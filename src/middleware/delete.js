@@ -3,7 +3,7 @@ const path = require("path");
 
 const remove = (req, res) => {
 
-  fs.unlink('./public/1663769397343.jpg' ,(err) => {
+  fs.unlink('./public/1663825517118.jpg' ,(err) => {
     if (err) {
       res.status(500).send({
         message: "Could not delete the file. " + err,

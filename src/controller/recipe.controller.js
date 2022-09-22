@@ -4,8 +4,9 @@ const { success, failed } = require('../helper/response');
 const recipeController = {
   insertRecipe: (req, res) => {
     const {
-      title, image, ingredient, videostep, createdat,
+      title, ingredient, videostep, createdat,
     } = req.body;
+    const image = req.file.filename;
     recipeModel
       .insertRecipe(title, image, ingredient, videostep, createdat)
       .then((result) => {
