@@ -47,6 +47,17 @@ module.exports = {
                             nama: user.nama,
                             level: user.level
                         });
+                        // process.env.ACCESS_TOKEN_SECRET,{
+                        //     expiresIn: '10m'
+                        // });
+                        // const refreshToken = await jwtToken({
+                        //     nama: user.nama,
+                        // },process.env.REFRESH_TOKEN_SECRET,{
+                        //     expiresIn: '1d'
+                        // });
+                        // res.cookie('jwt', refreshToken, {
+
+                        // });
                         successWithToken(res, token, 'success', 'Success login');
                     } else {
                         failed(res, null, 'failed', 'Username or password wrong');

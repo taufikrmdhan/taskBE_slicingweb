@@ -1,35 +1,19 @@
-// const multer = require('multer');
+const fs = require("fs");
+const path = require("path");
 
-// //import path
-// const path = require('path');
-// const fs = require('fs');
-// const db = require('../config/db');
+const remove = (req, res) => {
 
-// //manajemen file
-// const multerDelete = multer({
-//     storage: multer.diskStorage({
-//         destination: (req, file, cb) => {
-//             cb(null, './public');
-//         },
-//         filename: (req, file, cb) => {
-//             const ext = path.extname(file.originalname);
-//             const filename = Date.now() + '' + ext;
-//             cb(null, filename);
-//         }
-//     }),
-// });
+  fs.unlink('./public/1663769397343.jpg' ,(err) => {
+    if (err) {
+      res.status(500).send({
+        message: "Could not delete the file. " + err,
+      });
+    }
 
-// const deleted = (req, res, next) => {
-//     const multerSingle = multerDelete.single('image');
-//     multerSingle(req, res, (err) => {
-//         if (err) {
-//             res.json({
-//                 message: 'error',
-//                 error: err
-//             });
-//         } else {
-//             next();
-//         }
-//     });
-// }
-// module.exports = deleted;
+    res.status(200).send({
+      message: "File is deleted.",
+    });
+  });
+};
+
+module.exports = remove
