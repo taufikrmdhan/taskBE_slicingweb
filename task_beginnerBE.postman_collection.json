@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"id_user\": 12,\n    \"nama\": \"iqbal\",\n    \"email\":\"iqbal@gmail.com\",\n    \"password\":\"54857\",\n    \"phone\": \"1235555\"\n}\n ",
+					"raw": "{\n    \"nama\": \"ratno\",\n    \"email\":\"rat@gmail.com\",\n    \"password\":\"122121\",\n    \"phone\": \"023738\"\n}\n ",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -35,12 +35,94 @@
 			"response": []
 		},
 		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nama",
+							"value": "nanonano",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "salman@ds",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "121233",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "01928799",
+							"type": "text"
+						},
+						{
+							"key": "level",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/Users/syauqirs/Desktop/pijar/scan kk.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:4000/user/register",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"user",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "loginUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nama\": \"nanonano\",\n    \"password\": \"121233\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/user/login",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "listUserById",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:4000/user/list/1",
+					"raw": "localhost:4000/user/list/47",
 					"host": [
 						"localhost"
 					],
@@ -48,7 +130,14 @@
 					"path": [
 						"user",
 						"list",
-						"1"
+						"47"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1hIjoiaXNzcyIsImxldmVsIjpudWxsLCJpYXQiOjE2NjM2ODUyOTh9.cNUTfoQMAJIE-XO4HKW896tLsUbSzKFMebQPAbbiccQ",
+							"disabled": true
+						}
 					]
 				}
 			},
@@ -58,9 +147,15 @@
 			"name": "getUserList",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1hIjoibmFub25hbm8iLCJsZXZlbCI6MCwiaWF0IjoxNjYzODM5MTQyfQ.AS13RqhQf1XKbqeBmlm7teXAwWQplSIWK8JkIBVXWFs",
+						"type": "text"
+					}
+				],
 				"url": {
-					"raw": "localhost:4000/user/list?limit=6&page=1",
+					"raw": "localhost:4000/user/list?limit=10&page=1",
 					"host": [
 						"localhost"
 					],
@@ -72,11 +167,16 @@
 					"query": [
 						{
 							"key": "limit",
-							"value": "6"
+							"value": "10"
 						},
 						{
 							"key": "page",
 							"value": "1"
+						},
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1hIjoiaXNzcyIsImxldmVsIjpudWxsLCJpYXQiOjE2NjM2ODUyOTh9.cNUTfoQMAJIE-XO4HKW896tLsUbSzKFMebQPAbbiccQ",
+							"disabled": true
 						}
 					]
 				}
@@ -89,23 +189,36 @@
 				"method": "PUT",
 				"header": [],
 				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"id_user\":3,\n    \"password\":\"11111\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id_user",
+							"value": "48",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "66666",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/Users/syauqirs/Desktop/Folder Taufik/foto ktm.jpg"
 						}
-					}
+					]
 				},
 				"url": {
-					"raw": "localhost:4000/user/update",
+					"raw": "localhost:4000/user/update/48",
 					"host": [
 						"localhost"
 					],
 					"port": "4000",
 					"path": [
 						"user",
-						"update"
+						"update",
+						"48"
 					]
 				}
 			},
@@ -115,9 +228,16 @@
 			"name": "deleteUser",
 			"request": {
 				"method": "DELETE",
-				"header": [],
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1hIjoic3VsdGFuIiwibGV2ZWwiOjAsImlhdCI6MTY2Mzc2OTc5NX0.ea4UZlbQBBmG4vusXCcxG7idctZL6tkZwhQyLZx2r-U",
+						"type": "text",
+						"disabled": true
+					}
+				],
 				"url": {
-					"raw": "localhost:4000/user/delete/2",
+					"raw": "localhost:4000/user/delete/47",
 					"host": [
 						"localhost"
 					],
@@ -125,7 +245,7 @@
 					"path": [
 						"user",
 						"delete",
-						"2"
+						"47"
 					]
 				}
 			},
@@ -137,13 +257,40 @@
 				"method": "POST",
 				"header": [],
 				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"id_recipe\": 7,\n    \"title\": \"Udang Bakar\",\n    \"image\": \"https://drive.google.com/file/d/1j_FW8OpupAaNoJD-n8DgFmRc9P2-a_kV/view?usp=sharing\",\n    \"ingredient\": \"Siapkan udang, lalu bakar udang dan sajikan dengan mantap.\",\n    \"videostep\": \"https://www.youtube.com/watch?v=XIXsdEWQeR0&ab_channel=MasakwithMamaVio\",\n    \"createdat\": \"2022-09-10\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id_recipe",
+							"value": "23",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "title",
+							"value": "gongo",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/Users/syauqirs/Desktop/Folder Taufik/foto ktm.jpg"
+						},
+						{
+							"key": "ingredient",
+							"value": "masukkan bumbu, siapkan air panas , dan masak",
+							"type": "text"
+						},
+						{
+							"key": "videostep",
+							"value": "dsdsdsd",
+							"type": "text"
+						},
+						{
+							"key": "createdat",
+							"value": "2022-09-09",
+							"type": "text"
 						}
-					}
+					]
 				},
 				"url": {
 					"raw": "localhost:4000/recipe/add",
@@ -161,9 +308,16 @@
 		},
 		{
 			"name": "listRecipe",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "localhost:4000/recipe/list",
 					"host": [
@@ -224,7 +378,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:4000/recipe/delete/2",
+					"raw": "localhost:4000/recipe/delete/20",
 					"host": [
 						"localhost"
 					],
@@ -232,7 +386,7 @@
 					"path": [
 						"recipe",
 						"delete",
-						"2"
+						"20"
 					]
 				}
 			},
@@ -244,44 +398,11 @@
 				"method": "PUT",
 				"header": [],
 				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"id_recipe\": 1,\n    \"title\": \"Chicken Kari\",\n    \"image\": \"https://drive.google.com/file/d/12vZqjfhUPQvBcz4UPkDV4uiKTykEYzEY/view?usp=sharing\",\n    \"ingredient\": \"250 gram dada ayam fillet1/4 sdt garam (secukupnya)1 siung bawang putih (haluskan)1/2 sdt merica1 butir telur (kocok, beri sejumput garam)5 sdm tepung serbaguna secukupnya tepung panir\",\n    \"videostep\": \"https://www.youtube.com/watch?v=ZQop4gf1qv4&ab_channel=Mrs.Culinary\",\n    \"createdat\": \"2022-09-15\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
+					"mode": "formdata",
+					"formdata": []
 				},
 				"url": {
-					"raw": "localhost:4000/recipe/update",
-					"host": [
-						"localhost"
-					],
-					"port": "4000",
-					"path": [
-						"recipe",
-						"update"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "updateRecipeByName",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"image\": \"https://drive.google.com/file/d/12vZqjfhUPQvBcz4UPkDV4uiKTykEYzEY/view?usp=sharing\",\n    \"ingredient\": \"250 gram dada ayam fillet1/4 sdt garam (secukupnya)1 siung bawang putih (haluskan)1/2 sdt merica1 butir telur (kocok, beri sejumput garam)5 sdm tepung serbaguna secukupnya tepung panir\",\n    \"videostep\": \"https://www.youtube.com/watch?v=ZQop4gf1qv4&ab_channel=Mrs.Culinary\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:4000/recipe/update/Chicken Kari",
+					"raw": "localhost:4000/recipe/update/",
 					"host": [
 						"localhost"
 					],
@@ -289,7 +410,37 @@
 					"path": [
 						"recipe",
 						"update",
-						"Chicken Kari"
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateRecipeImageById",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/Users/syauqirs/Desktop/Folder Taufik/foto ktm.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:4000/recipe/update/20",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"recipe",
+						"update",
+						"20"
 					]
 				}
 			},
