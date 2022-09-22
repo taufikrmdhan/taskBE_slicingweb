@@ -10,7 +10,9 @@ const userModel = {
       }
     });
   }),
-  register: ({nama, email, password, phone, level, image}) => new Promise((resolve, reject) => {
+  register: ({
+    nama, email, password, phone, level, image,
+  }) => new Promise((resolve, reject) => {
     db.query(`INSERT INTO users (nama, email, password, phone, level, image) VALUES ('${nama}', '${email}', '${password}', '${phone}', ${level}, '${image}')`, (err, result) => {
       if (err) {
         reject(err);
@@ -19,17 +21,15 @@ const userModel = {
       }
     });
   }),
-  checkUsername: (nama) => {
-    return new Promise((resolve, reject) => {
-      db.query(`SELECT * FROM users WHERE nama = '${nama}'`, (err, result) => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve(result);
-        }
-      });
-    })
-  },
+  checkUsername: (nama) => new Promise((resolve, reject) => {
+    db.query(`SELECT * FROM users WHERE nama = '${nama}'`, (err, result) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(result);
+      }
+    });
+  }),
   list: (limit, offset) => new Promise((resolve, reject) => {
     db.query(`SELECT * FROM users LIMIT ${limit} OFFSET ${offset}`, (err, result) => {
       if (err) {

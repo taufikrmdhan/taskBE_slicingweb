@@ -41,7 +41,7 @@ const recipeController = {
   //     });
   // },
   listRecipeById: (req, res) => {
-    const {id_recipe } = req.params;
+    const { id_recipe } = req.params;
     recipeModel
       .listRecipeById(id_recipe)
       .then((result) => {

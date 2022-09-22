@@ -1,13 +1,13 @@
-const fs = require("fs");
-const path = require("path");
-const {listUserById} = require("../model/user.model");
-const {listRecipeById} = require("../model/recipe.model");
+const fs = require('fs');
+const path = require('path');
+const { listUserById } = require('../model/user.model');
+const { listRecipeById } = require('../model/recipe.model');
 
-const remove = async(req, res, next) => {
+const remove = async (req, res, next) => {
   try {
-    const id_user = req.params.id_user;
+    const { id_user } = req.params;
     const { rows: [user] } = await listUserById(id_user);
-    const image = user.image;
+    const { image } = user;
     fs.unlink(`./public/${image}`, (err) => {
       if (err) {
         console.log(err);
@@ -19,11 +19,11 @@ const remove = async(req, res, next) => {
     res.json(err);
   }
 };
-const removeRecipe = async(req, res, next) => {
+const removeRecipe = async (req, res, next) => {
   try {
-    const id_recipe = req.params.id_recipe;
+    const { id_recipe } = req.params;
     const { rows: [recipe] } = await listRecipeById(id_recipe);
-    const image = recipe.image;
+    const { image } = recipe;
     fs.unlink(`./public/${image}`, (err) => {
       if (err) {
         console.log(err);
@@ -36,4 +36,4 @@ const removeRecipe = async(req, res, next) => {
   }
 };
 
-module.exports = {remove, removeRecipe};
+module.exports = { remove, removeRecipe };
