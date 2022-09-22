@@ -29,10 +29,21 @@ const recipeController = {
         res.json(err);
       });
   },
-  listRecipeByName: (req, res) => {
-    const { title } = req.params;
+  // listRecipeByName: (req, res) => {
+  //   const { title } = req.params;
+  //   recipeModel
+  //     .listRecipeByName(title)
+  //     .then((result) => {
+  //       res.json(result.rows);
+  //     })
+  //     .catch((err) => {
+  //       res.json(err);
+  //     });
+  // },
+  listRecipeById: (req, res) => {
+    const {id_recipe } = req.params;
     recipeModel
-      .listRecipeByName(title)
+      .listRecipeById(id_recipe)
       .then((result) => {
         res.json(result.rows);
       })
@@ -72,11 +83,32 @@ const recipeController = {
         res.json(err);
       });
   },
-  updateRecipeByName: (req, res) => {
-    const { title } = req.params;
-    const { image, ingredient, videostep } = req.body;
+  // updateRecipeByName: (req, res) => {
+  //   const { title } = req.params;
+  //   const { image, ingredient, videostep } = req.body;
+  //   recipeModel
+  //     .updateRecipeByName(title, image, ingredient, videostep)
+  //     .then((result) => {
+  //       if (result.rowCount == 1) {
+  //         res.json({
+  //           message: 'success update data',
+  //           data: result,
+  //         });
+  //       } else {
+  //         res.json({
+  //           message: 'failed update data',
+  //         });
+  //       }
+  //     })
+  //     .catch((err) => {
+  //       res.json(err);
+  //     });
+  // },
+  updateRecipeById: (req, res) => {
+    const { id_recipe } = req.params;
+    const image = req.file.filename;
     recipeModel
-      .updateRecipeByName(title, image, ingredient, videostep)
+      .updateRecipeById(id_recipe, image)
       .then((result) => {
         if (result.rowCount == 1) {
           res.json({

@@ -40,9 +40,11 @@ const userController = {
       });
   },
   update: (req, res) => {
-    const { id_user, password } = req.body;
+    const { password } = req.body;
+    const {id_user} = req.params;
+    const image = req.file.filename;
     userModel
-      .update(id_user, password)
+      .update(id_user, password, image)
       .then((result) => {
         if (result.rowCount == 1) {
           success(res, result, 'success', 'success update data');

@@ -22,9 +22,21 @@ const recipeModel = {
       }
     });
   }),
-  listRecipeByName: (title) => new Promise((resolve, reject) => {
+  // listRecipeByName: (title) => new Promise((resolve, reject) => {
+  //   db.query(
+  //     `SELECT * FROM recipe WHERE title LIKE '%${title}%'`,
+  //     (err, result) => {
+  //       if (err) {
+  //         reject(err);
+  //       } else {
+  //         resolve(result);
+  //       }
+  //     },
+  //   );
+  // }),
+  listRecipeById: (id_recipe) => new Promise((resolve, reject) => {
     db.query(
-      `SELECT * FROM recipe WHERE title LIKE '%${title}%'`,
+      `SELECT * FROM recipe WHERE id_recipe = ${id_recipe}`,
       (err, result) => {
         if (err) {
           reject(err);
@@ -58,9 +70,21 @@ const recipeModel = {
       },
     );
   }),
-  updateRecipeByName: (title, image, ingredient, videostep) => new Promise((resolve, reject) => {
+  // updateRecipeByName: (title, image, ingredient, videostep) => new Promise((resolve, reject) => {
+  //   db.query(
+  //     `UPDATE recipe SET image = '${image}', ingredient = '${ingredient}', videostep = '${videostep}' WHERE title LIKE '%${title}%'`,
+  //     (err, result) => {
+  //       if (err) {
+  //         reject(err);
+  //       } else {
+  //         resolve(result);
+  //       }
+  //     },
+  //   );
+  // }),
+  updateRecipeById: (id_recipe, image) => new Promise((resolve, reject) => {
     db.query(
-      `UPDATE recipe SET image = '${image}', ingredient = '${ingredient}', videostep = '${videostep}' WHERE title LIKE '%${title}%'`,
+      `UPDATE recipe SET image = '${image}' WHERE id_recipe = ${id_recipe}`,
       (err, result) => {
         if (err) {
           reject(err);

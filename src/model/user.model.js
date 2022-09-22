@@ -57,8 +57,8 @@ const userModel = {
       }
     });
   }),
-  update: (id_user, password) => new Promise((resolve, reject) => {
-    db.query(`UPDATE users SET password = '${password}' WHERE id_user = ${id_user}`, (err, result) => {
+  update: (id_user, password, image) => new Promise((resolve, reject) => {
+    db.query(`UPDATE users SET password = '${password}', image = '${image}' WHERE id_user = ${id_user}`, (err, result) => {
       if (err) {
         reject(err);
       } else {
