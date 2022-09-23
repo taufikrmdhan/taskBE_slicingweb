@@ -1,18 +1,20 @@
 const userModel = require('../model/user.model');
-const { success, failed } = require('../helper/response');
 
 const userController = {
   insert: (req, res) => {
     const {
-      nama, email, password, phone,
+      id_user, nama, email, password, phone,
     } = req.body;
     userModel
-      .insert(nama, email, password, phone)
+      .insert(id_user, nama, email, password, phone)
       .then((result) => {
-        success(res, null, 'success', 'success insert data');
+        res.json({
+          message: 'success insert data',
+          data: result,
+        });
       })
       .catch((err) => {
-        failed(res, err, 'failed', 'failed insert data');
+        res.json(err);
       });
   },
   list: (req, res) => {
@@ -22,10 +24,10 @@ const userController = {
     userModel
       .list(limit, offset)
       .then((result) => {
-        success(res, result, 'success', 'success get data');
+        res.json(result.rows);
       })
       .catch((err) => {
-        failed(res, err, 'failed', 'failed get data');
+        res.json(err);
       });
   },
   listUserById: (req, res) => {
@@ -33,23 +35,26 @@ const userController = {
     userModel
       .listUserById(id_user)
       .then((result) => {
-        success(res, result, 'success', 'success get data by Id');
+        res.json(result.rows);
       })
       .catch((err) => {
-        failed(res, err, 'failed', 'failed get data by Id');
+        res.json(err);
       });
   },
   update: (req, res) => {
-    // const { password } = req.body;
-    const { id_user } = req.params;
-    const image = req.file.filename;
+    const { id_user, password } = req.body;
     userModel
-      .update(id_user, image)
+      .update(id_user, password)
       .then((result) => {
         if (result.rowCount == 1) {
-          success(res, result, 'success', 'success update data');
+          res.json({
+            message: 'success update data',
+            data: result,
+          });
         } else {
-          failed(res, err, 'failed', 'failed update data');
+          res.json({
+            message: 'failed update data',
+          });
         }
       })
       .catch((err) => {
@@ -61,10 +66,13 @@ const userController = {
     userModel
       .destroy(id_user)
       .then((result) => {
-        success(res, result, 'success', 'success delete data');
+        res.json({
+          message: 'success delete data',
+          data: result.rows,
+        });
       })
       .catch((err) => {
-        failed(res, err, 'failed', 'failed delete data');
+        res.json(err);
       });
   },
 };

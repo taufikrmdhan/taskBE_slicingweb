@@ -1,9 +1,9 @@
 const db = require('../config/db');
 
 const recipeModel = {
-  insertRecipe: (title, image, ingredient, videostep, createdat) => new Promise((resolve, reject) => {
+  insertRecipe: (id_recipe, title, image, ingredient, videostep, createdat) => new Promise((resolve, reject) => {
     db.query(
-      `INSERT INTO recipe (title, image, ingredient, videostep, createdat) VALUES ('${title}', '${image}', '${ingredient}', '${videostep}', '${createdat}')`,
+      `INSERT INTO recipe (id_recipe, title, image, ingredient, videostep, createdat) VALUES (${id_recipe}, '${title}', '${image}', '${ingredient}', '${videostep}', '${createdat}')`,
       (err, result) => {
         if (err) {
           reject(err);
@@ -22,21 +22,9 @@ const recipeModel = {
       }
     });
   }),
-  // listRecipeByName: (title) => new Promise((resolve, reject) => {
-  //   db.query(
-  //     `SELECT * FROM recipe WHERE title LIKE '%${title}%'`,
-  //     (err, result) => {
-  //       if (err) {
-  //         reject(err);
-  //       } else {
-  //         resolve(result);
-  //       }
-  //     },
-  //   );
-  // }),
-  listRecipeById: (id_recipe) => new Promise((resolve, reject) => {
+  listRecipeByName: (title) => new Promise((resolve, reject) => {
     db.query(
-      `SELECT * FROM recipe WHERE id_recipe = ${id_recipe}`,
+      `SELECT * FROM recipe WHERE title LIKE '%${title}%'`,
       (err, result) => {
         if (err) {
           reject(err);
@@ -70,21 +58,9 @@ const recipeModel = {
       },
     );
   }),
-  // updateRecipeByName: (title, image, ingredient, videostep) => new Promise((resolve, reject) => {
-  //   db.query(
-  //     `UPDATE recipe SET image = '${image}', ingredient = '${ingredient}', videostep = '${videostep}' WHERE title LIKE '%${title}%'`,
-  //     (err, result) => {
-  //       if (err) {
-  //         reject(err);
-  //       } else {
-  //         resolve(result);
-  //       }
-  //     },
-  //   );
-  // }),
-  updateRecipeById: (id_recipe,image) => new Promise((resolve, reject) => {
+  updateRecipeByName: (title, image, ingredient, videostep) => new Promise((resolve, reject) => {
     db.query(
-      `UPDATE recipe SET image = '${image}' WHERE id_recipe = ${id_recipe}`,
+      `UPDATE recipe SET image = '${image}', ingredient = '${ingredient}', videostep = '${videostep}' WHERE title LIKE '%${title}%'`,
       (err, result) => {
         if (err) {
           reject(err);

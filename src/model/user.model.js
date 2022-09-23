@@ -1,28 +1,8 @@
 const db = require('../config/db');
 
 const userModel = {
-  insert: (nama, email, password, phone) => new Promise((resolve, reject) => {
-    db.query(`INSERT INTO users (nama, email, password, phone) VALUES ('${nama}', '${email}', '${password}', '${phone}')`, (err, result) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(result);
-      }
-    });
-  }),
-  register: ({
-    nama, email, password, phone, level, image,
-  }) => new Promise((resolve, reject) => {
-    db.query(`INSERT INTO users (nama, email, password, phone, level, image) VALUES ('${nama}', '${email}', '${password}', '${phone}', ${level}, '${image}')`, (err, result) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(result);
-      }
-    });
-  }),
-  checkUsername: (nama) => new Promise((resolve, reject) => {
-    db.query(`SELECT * FROM users WHERE nama = '${nama}'`, (err, result) => {
+  insert: (id_user, nama, email, password, phone) => new Promise((resolve, reject) => {
+    db.query(`INSERT INTO users (id_user, nama, email, password, phone) VALUES (${id_user}, '${nama}', '${email}', '${password}', '${phone}')`, (err, result) => {
       if (err) {
         reject(err);
       } else {
@@ -57,8 +37,8 @@ const userModel = {
       }
     });
   }),
-  update: (id_user, image) => new Promise((resolve, reject) => {
-    db.query(`UPDATE users SET image = '${image}' WHERE id_user = ${id_user}`, (err, result) => {
+  update: (id_user, password) => new Promise((resolve, reject) => {
+    db.query(`UPDATE users SET password = '${password}' WHERE id_user = ${id_user}`, (err, result) => {
       if (err) {
         reject(err);
       } else {

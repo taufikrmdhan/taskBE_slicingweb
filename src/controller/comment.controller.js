@@ -1,5 +1,4 @@
 const commentModel = require('../model/comment.model');
-const { success, failed } = require('../helper/response');
 
 const commentController = {
   insertComment: (req, res) => {
